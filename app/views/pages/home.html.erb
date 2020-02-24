@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="search-bar">
+  <div class="flexing-center height-search">
     <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :name, input_html: {value: ""} %>
+    <%= f.input :category, input_html: {value: ""} %>
     <%= f.submit "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
