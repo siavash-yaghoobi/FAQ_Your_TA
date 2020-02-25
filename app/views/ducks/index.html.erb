@@ -7,15 +7,40 @@
   <%= link_to "Edit the duck", edit_duck_path(duck) %>
 <% end %>
 
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
+<div class="test">
+  <div class="card-trip">
+    <img src="https://lilalu-shop.com/media/image/03/c7/39/lilalu-quietscheente-igel-hedgehog-rubber-duck-HR.png" />
+    <div class="card-trip-infos">
+      <div>
+        <h2>Title here</h2>
+        <p>Short description here!</p>
+      </div>
+      <h2 class="card-trip-pricing">$99.99</h2>
+      <img src="https://www.shop-016.de/shop_cfg/paperella/Badeente-5455.JPG" class="card-trip-user avatar-bordered" />
     </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+
+  <div class="card-trip">
+    <img src="https://lilalu-shop.com/media/image/05/7f/f2/lilalu-quietscheente-gruen-green-rubber-duck-gummiente-F_600x600.png" />
+    <div class="card-trip-infos">
+      <div>
+        <h2>Title here</h2>
+        <p>Short description here!</p>
+      </div>
+      <h2 class="card-trip-pricing">£99.99</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRGlGLJMJYVmWouY8xwjGDJEPYyooGDkncdLVSQpw-teINOALbL" class="card-trip-user avatar-bordered" />
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="flexing-center height-search">
+    <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <%= f.input :category, input_html: {value: ""} %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 
