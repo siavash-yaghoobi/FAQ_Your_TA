@@ -12,7 +12,11 @@ class DucksController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
     @duck.update
+    redirect_to duck_path(@duck)
   end
 
   def create
@@ -28,6 +32,7 @@ class DucksController < ApplicationController
 
   def destroy
     @duck.destroy
+    redirect_to ducks_path
   end
 
   private
