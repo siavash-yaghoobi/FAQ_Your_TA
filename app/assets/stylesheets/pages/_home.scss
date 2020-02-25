@@ -1,7 +1,24 @@
 // Specific CSS for your home-page
-.search-bar {
+
+// this is for the search bar in root
+.flexing-center {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+
+}
+.height-search {
   height: 700px;
+}
+
+// footer
+.footer {
+  background-color: white;
+  height: 75px;
+}
+
+.footer-links {
+  a {
+    margin: 0 5px;
+  }
 }
