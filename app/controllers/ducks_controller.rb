@@ -1,5 +1,5 @@
 class DucksController < ApplicationController
-  before_action :set_duck, only: %i[show edit destroy]
+  before_action :set_duck, only: %i[show edit update destroy]
   def index
     @ducks = policy_scope(Duck)
 
@@ -7,6 +7,7 @@ class DucksController < ApplicationController
 
   def show
     authorize @duck
+    @booking = Booking.new
   end
 
   def new
@@ -18,7 +19,7 @@ class DucksController < ApplicationController
   end
 
   def update
-    @duck.update
+    @duck.update(duck_params)
     redirect_to duck_path(@duck)
   end
 

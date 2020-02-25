@@ -1,7 +1,8 @@
 <% @ducks.each do |duck| %>
-  <h1><%= duck.name %></h1>
+  <h1><%= link_to duck.name, duck_path(duck) %></h1>
   <h2><%= duck.category %></h2>
   <p><%= duck.description %></p>
+
   <%= button_to "destroy duck", duck_path(duck), method: :delete %>
   <%= link_to "Edit the duck", edit_duck_path(duck) %>
 <% end %>
@@ -42,3 +43,6 @@
     <% end %>
   </div>
 </div>
+
+
+<%= render 'shared/search-bar' %>
