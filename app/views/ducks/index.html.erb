@@ -1,7 +1,10 @@
 <% @ducks.each do |duck| %>
-  <h1>duck.name</h1>
-  <h2>duck.category</h2>
-  <p>duck.description</p>
+  <h1><%= duck.name %></h1>
+  <h2><%= duck.category %></h2>
+  <p><%= duck.description %></p>
+  <%= button_to "destroy duck", duck_path(duck), method: :delete %>
+  <%= link_to "Edit the duck", edit_duck_path(duck) %>
+<% end %>
 
 <div class="card-trip">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
