@@ -1,10 +1,11 @@
 class DucksController < ApplicationController
-  before_action :set_duck, only: %i[show edit destroy]
+  before_action :set_duck, only: %i[show edit update destroy]
   def index
     @ducks = Duck.all
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -15,7 +16,7 @@ class DucksController < ApplicationController
   end
 
   def update
-    @duck.update
+    @duck.update(duck_params)
     redirect_to duck_path(@duck)
   end
 
