@@ -1,3 +1,10 @@
 <h1> <%= @duck.name %></h1>
 <h2> <%= @duck.category %></h2>
 <p><%= @duck.description %></p>
+<% @duck.bookings.each do |booking| %>
+  <p> <%= booking.date %></p>
+<% end %>
+<%= simple_form_for ([@duck, @booking]) do |form| %>
+  <%= form.input :date %>
+  <%= form.button :submit %>
+<% end %>
