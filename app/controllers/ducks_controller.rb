@@ -1,14 +1,17 @@
 class DucksController < ApplicationController
   before_action :set_duck, only: %i[show edit destroy]
   def index
-    @ducks = Duck.all
+    @ducks = policy_scope(Duck)
+
   end
 
   def show
+    authorize @duck
   end
 
   def new
     @duck = Duck.new
+    authorize @duck
   end
 
   def edit
@@ -22,7 +25,8 @@ class DucksController < ApplicationController
   def create
     @duck = Duck.new(duck_params)
     @duck.user = current_user
-    @duck.save
+
+    authorize @duck
     if @duck.save
       redirect_to duck_path(@duck)
     else
