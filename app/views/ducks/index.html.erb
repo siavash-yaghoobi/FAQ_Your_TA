@@ -1,15 +1,19 @@
-<div class="test">
-  <div class="card-trip">
+<div class="container">
+  <div class="test remove-underline link-text-black">
     <% @ducks.each do |duck| %>
-      <div class="card-trip">
-        <%= cl_image_tag duck.photo.key %>
+        <%=link_to duck_path(duck) do %>
+      <div class="card-trip border">
+        <%= cl_image_tag duck.photo.key, class: "border" %>
+        <div class='card-trip-infos'>
+          <h2><%= duck.name %></h2>
+          <h2><%= duck.category %></h2>
+        </div>
+        <div class="card-trip-infos">
+          <p><%= duck.description %></p>
+          <h6><%= duck.price %> :&euro;</h6>
+        </div>
       </div>
-      <div class='card-trip-infos'>
-        <h1><%= link_to duck.name, duck_path(duck) %></h1>
-        <h2><%= duck.category %></h2>
-        <p><%= duck.description %></p>
-        <h3><%= duck.price %></h3>
-      </div>
+      <% end %>
     <% end %>
+  </div>
 </div>
-
