@@ -1,8 +1,37 @@
-<div class="container">
-  <div class="flexing-center height-search">
-    <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline search-form' } do |f| %>
-    <%= f.input :category, input_html: {value: ""} %>
-    <%= f.submit "Search", class: "btn btn-primary" %>
-    <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://samurai.ge/wp-content/uploads/2018/02/rubber-duck-debugging.jpg);">
+  <div class="container">
+    <h1>Le Duckon helps <strong>stuck developers</strong> to <strong> find their duck</strong>!</h1>
+    <p>Improve your programming skills and FAQ your duck</p>
+    <br>
+    <form action="/ducks" accept-charset="UTF-8" method="get" class="search-form-control">
+      <div class='search-flex'>
+        <input type="text" name="query" id="query" class="form-control" placeholder="Type in duck's name, location or type">
+        <input type="submit" name="commit" value="Find your duck" class="btn btn-gradient" data-disable-with="Search">
+      </div>
+    </form>
   </div>
 </div>
+<div class="container style_me">
+  <h2 class="text-center">How it works</h2>
+  <div class="row" align="center">
+    <div class="col">
+      <!-- <img src="https://miro.medium.com/max/842/1*Z6yFlnqeyqNRxnhtFQk65w.png" alt=""> -->
+      <h3>Search for your duck!!</h3>
+      <p>You can search for location, type, category, behaviour and skill....and much more</p>
+    </div>
+
+    <div class="col">
+      <!-- <img src="https://assets.awwwards.com/awards/images/2015/09/ui-patterns-awwwards.png" alt=""> -->
+      <h3>Book your duck!!</h3>
+      <p>Rent the duck that suits you best</p>
+    </div>
+
+    <div class="col">
+      <!-- <img src="https://devducks.com/static/devducks/imgs/js-duck.jpg" alt=""> -->
+      <h3>FAQ your duck!!</h3>
+      <p>Start to code with your favourite debugging duck and ask it as much question as you feel like during your renting period. No boundries</p>
+    </div>
+  </div>
+</div>
+
+
