@@ -1,6 +1,6 @@
 .test {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
@@ -8,6 +8,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 5px;
 }
 
 .card-trip > img {
@@ -29,17 +30,25 @@
 }
 
 
-.card-trip .card-trip-infos {
+.card-trip {
+  .card-trip-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  }
 }
-
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+.card-trip-infos {
+  a {
+    &:hover {
+   text-decoration: none;
+    }
+  }
 }
+// .card-trip-infos .card-trip-user {
+//   position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
+// }
