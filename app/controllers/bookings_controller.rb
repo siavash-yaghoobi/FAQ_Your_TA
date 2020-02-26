@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[edit update destroy]
 
   def create
+    authorize @booking
     @duck = Duck.find(params[:duck_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
@@ -13,15 +14,18 @@ class BookingsController < ApplicationController
     end
 
     def edit
+      authorize @booking
     end
 
     def update
+      authorize @booking
       @duck = Duck.find(params[:duck_id])
       @booking.update
       redirect_to duck_path(@duck)
     end
 
     def destroy
+      authorize @booking
       @booking.destroy
     end
   end
