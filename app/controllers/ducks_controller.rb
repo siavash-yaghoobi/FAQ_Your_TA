@@ -1,13 +1,13 @@
 class DucksController < ApplicationController
   before_action :set_duck, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @ducks = policy_scope(Duck)
-
   end
 
   def show
-    authorize @duck
     @booking = Booking.new
+    authorize @duck
   end
 
   def new
@@ -16,9 +16,11 @@ class DucksController < ApplicationController
   end
 
   def edit
+    authorize @duck
   end
 
   def update
+    authorize @duck
     @duck.update(duck_params)
     redirect_to duck_path(@duck)
   end
@@ -36,13 +38,14 @@ class DucksController < ApplicationController
   end
 
   def destroy
+    authorize @duck
     @duck.destroy
     redirect_to ducks_path
   end
 
   private
   def duck_params
-    params.require(:duck).permit(:name, :category, :description)
+    params.require(:duck).permit(:name, :category, :description, :price, :photo)
   end
 
   def set_duck
