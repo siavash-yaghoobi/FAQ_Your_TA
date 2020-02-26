@@ -1,48 +1,32 @@
-<% @ducks.each do |duck| %>
-  <h1><%= link_to duck.name, duck_path(duck) %></h1>
-  <h2><%= duck.category %></h2>
-  <p><%= duck.description %></p>
-
-  <%= button_to "destroy duck", duck_path(duck), method: :delete %>
-  <%= link_to "Edit the duck", edit_duck_path(duck) %>
-<% end %>
-
-<div class="test">
-  <div class="card-trip">
-    <img src="https://lilalu-shop.com/media/image/03/c7/39/lilalu-quietscheente-igel-hedgehog-rubber-duck-HR.png" />
-    <div class="card-trip-infos">
-      <div>
-        <h2>Title here</h2>
-        <p>Short description here!</p>
-      </div>
-      <h2 class="card-trip-pricing">$99.99</h2>
-      <img src="https://www.shop-016.de/shop_cfg/paperella/Badeente-5455.JPG" class="card-trip-user avatar-bordered" />
-    </div>
-  </div>
-
-  <div class="card-trip">
-    <img src="https://lilalu-shop.com/media/image/05/7f/f2/lilalu-quietscheente-gruen-green-rubber-duck-gummiente-F_600x600.png" />
-    <div class="card-trip-infos">
-      <div>
-        <h2>Title here</h2>
-        <p>Short description here!</p>
-      </div>
-      <h2 class="card-trip-pricing">£99.99</h2>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRGlGLJMJYVmWouY8xwjGDJEPYyooGDkncdLVSQpw-teINOALbL" class="card-trip-user avatar-bordered" />
-    </div>
-  </div>
-</div>
-
-
-
 <div class="container">
-  <div class="flexing-center height-search">
-    <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :category, input_html: {value: ""} %>
-    <%= f.submit "Search", class: "btn btn-primary" %>
+  <div class="test remove-underline link-text-black">
+    <% @ducks.each do |duck| %>
+<<<<<<< HEAD
+      <div class="card-trip">
+        <% if duck.photo.attached? %>
+          <%= cl_image_tag duck.photo.key %>
+        <% end %>
+      </div>
+      <div class='card-trip-infos'>
+        <h1><%= link_to duck.name, duck_path(duck) %></h1>
+        <h2><%= duck.category %></h2>
+        <p><%= duck.description %></p>
+        <h3><%= duck.price %></h3>
+=======
+        <%=link_to duck_path(duck) do %>
+      <div class="card-trip border">
+        <%= cl_image_tag duck.photo.key, class: "border" %>
+        <div class='card-trip-infos'>
+          <h2><%= duck.name %></h2>
+          <h2><%= duck.category %></h2>
+        </div>
+        <div class="card-trip-infos">
+          <p><%= duck.description %></p>
+          <h6><%= duck.price %> :&euro;</h6>
+        </div>
+>>>>>>> master
+      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
-
-
-<%= render 'shared/search-bar' %>
