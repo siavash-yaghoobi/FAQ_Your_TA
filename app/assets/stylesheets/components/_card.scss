@@ -1,7 +1,25 @@
 .test {
+  margin-top: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+.remove-underline {
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.link-text-black {
+  a {
+    color: black;
+    &:hover {
+      color: darkgray;
+    }
+  }
 }
 
 .card-duck {
@@ -29,26 +47,30 @@
   margin: 0;
 }
 
+.card-trip {
+  .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  }
+}
+.card-trip-infos {
+  a {
+    &:hover {
+   text-decoration: none;
+    }
+  }
+}
 
-// .card-duck {
-//   .card-duck-infos {
-//   padding: 16px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-end;
-//   position: relative;
-//   }
-// }
-// .card-duck-infos {
-//   a {
-//     &:hover {
-//    text-decoration: none;
-//     }
-//   }
-// }
-// .card-trip-infos .card-trip-user {
-//   position: absolute;
-//   right: 16px;
-//   top: -20px;
-//   width: 40px;
-// }
+.border {
+  box-shadow: 2px 2px 3px lightgray;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
