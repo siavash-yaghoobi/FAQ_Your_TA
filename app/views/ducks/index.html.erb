@@ -2,7 +2,9 @@
   <div class="card-trip">
     <% @ducks.each do |duck| %>
       <div class="card-trip">
-        <%= cl_image_tag duck.photo.key %>
+        <% if duck.photo.attached? %>
+          <%= cl_image_tag duck.photo.key %>
+        <% end %>
       </div>
       <div class='card-trip-infos'>
         <h1><%= link_to duck.name, duck_path(duck) %></h1>
