@@ -8,6 +8,7 @@ class DucksController < ApplicationController
     else
       @ducks = policy_scope(Duck.geocoded)
     end
+
     @markers = @ducks.map do |duck|
        {
          lat: duck.latitude,
@@ -15,6 +16,12 @@ class DucksController < ApplicationController
          infoWindow: render_to_string(partial: "info_window", locals: { duck: duck })
        }
      end
+  end
+
+  def listings
+    @ducks = policy_scope(current_user.ducks)
+
+    authorize @ducks
   end
 
   def show
@@ -52,7 +59,7 @@ class DucksController < ApplicationController
   def destroy
     authorize @duck
     @duck.destroy
-    redirect_to ducks_path
+    redirect_to listings_path
   end
 
   private
