@@ -5,19 +5,12 @@ class DucksController < ApplicationController
   def index
     if params[:query].present?
       @ducks = policy_scope(Duck.search_by_name_category_description(params[:query]))
+
     else
       @ducks = policy_scope(Duck.geocoded)
-    end
 
-    if params[:sorted_by]
-      if params[:sorted_by] == 'price'
-        print "sorting by price"
-        @ducks = @ducks.sort_by { |duck| duck.price}
-      elsif params[:sorted_by] == 'name'
-        @ducks = @ducks.sort_by { |duck| duck.name}
-      end
     end
-
+    sorting
     @markers = @ducks.map do |duck|
        {
          lat: duck.latitude,
@@ -78,5 +71,16 @@ class DucksController < ApplicationController
 
   def set_duck
     @duck = Duck.find(params[:id])
+  end
+
+  def sorting
+  if params[:sorted_by]
+      if params[:sorted_by] == 'price'
+        print "sorting by price"
+        @ducks = @ducks.sort_by { |duck| duck.price}
+      elsif params[:sorted_by] == 'name'
+        @ducks = @ducks.sort_by { |duck| duck.name}
+      end
+    end
   end
 end

@@ -16,7 +16,7 @@
       <div class="card-status col-md-4">
         <div class="card-booking">
           <% if policy(@duck).update? %>
-            <%= button_to "edit", edit_duck_path(@duck)  %>
+            <%= link_to "edit", edit_duck_path(@duck) %>
             <%= button_to "delete", duck_path(@duck), method: :delete  %>
           <% else %>
             <p id="price">Start from $50 per day</p>
