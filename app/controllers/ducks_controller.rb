@@ -3,12 +3,11 @@ class DucksController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    # if params[:query].present?
-    #   @ducks = policy_scope(Duck.search_by_name_category_description(params[:query])).where.not( longitude:nil, latitude: nil).near(params[:query], 200)
-    # else
-    #   @ducks = policy_scope(Duck)
-    # end
-    @ducks = policy_scope(Duck).geocoded
+    if params[:query].present?
+      @ducks = policy_scope(Duck.search_by_name_category_description(params[:query]))
+    else
+      @ducks = policy_scope(Duck.geocoded)
+    end
     @markers = @ducks.map do |duck|
        {
          lat: duck.latitude,
