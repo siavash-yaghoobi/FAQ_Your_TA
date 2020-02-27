@@ -10,4 +10,7 @@ class Duck < ApplicationRecord
     }
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  validates :name, :category, :description, :price, :address, presence: true
+  # validates :name, uniquenes: { scope: :address,
+  #   message: "should not list 2 times the same item" }
 end
