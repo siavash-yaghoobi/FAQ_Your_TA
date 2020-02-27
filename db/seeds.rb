@@ -30,5 +30,5 @@ ducks_attributes = [
     user_id:       1
   },
 ]
-Duck.create!(ducks_attributes)
+Duck.first_or_create(ducks_attributes)
 puts 'Finished!'

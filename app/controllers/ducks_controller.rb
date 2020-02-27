@@ -1,8 +1,13 @@
 class DucksController < ApplicationController
   before_action :set_duck, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
-    @ducks = policy_scope(Duck)
+    if params[:query].present?
+      @ducks = policy_scope(Duck.search_by_name_category_description(params[:query]))
+    else
+      @ducks = policy_scope(Duck)
+    end
   end
 
   def show

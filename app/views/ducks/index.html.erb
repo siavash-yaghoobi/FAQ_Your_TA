@@ -1,9 +1,13 @@
+
+
 <div class="container">
   <div class="test remove-underline link-text-black">
     <% @ducks.each do |duck| %>
         <%=link_to duck_path(duck) do %>
       <div class="card-trip border">
-        <%= cl_image_tag duck.photo.key, class: "border" %>
+        <% if duck.photo.attached? %>
+          <%= cl_image_tag duck.photo.key, class: "border" %>
+        <% end %>
         <div class='card-trip-infos'>
           <h2><%= duck.name %></h2>
           <h2><%= duck.category %></h2>
@@ -17,3 +21,4 @@
     <% end %>
   </div>
 </div>
+

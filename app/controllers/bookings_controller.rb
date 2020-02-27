@@ -23,16 +23,21 @@ class BookingsController < ApplicationController
     end
 
     def edit
+      authorize @booking
     end
 
     def update
+      authorize @booking
       @duck = Duck.find(params[:duck_id])
-      @booking.update
+      @booking.update(booking_params)
       redirect_to duck_path(@duck)
     end
 
     def destroy
+      authorize @booking
+      duck = @booking.duck
       @booking.destroy
+      redirect_to duck_path(duck)
     end
   end
 
