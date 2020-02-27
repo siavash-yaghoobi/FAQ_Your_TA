@@ -1,8 +1,20 @@
 class DucksController < ApplicationController
   before_action :set_duck, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
-    @ducks = policy_scope(Duck)
+    if params[:query].present?
+      @ducks = policy_scope(Duck.search_by_name_category_description(params[:query]))
+    else
+      @ducks = policy_scope(Duck.geocoded)
+    end
+    @markers = @ducks.map do |duck|
+       {
+         lat: duck.latitude,
+         lng: duck.longitude,
+         infoWindow: render_to_string(partial: "info_window", locals: { duck: duck })
+       }
+     end
   end
 
   def show
@@ -45,7 +57,7 @@ class DucksController < ApplicationController
 
   private
   def duck_params
-    params.require(:duck).permit(:name, :category, :description, :price, :photo)
+    params.require(:duck).permit(:name, :category, :description, :price, :address, :photo)
   end
 
   def set_duck
