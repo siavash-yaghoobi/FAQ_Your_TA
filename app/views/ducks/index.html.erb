@@ -4,7 +4,7 @@
 
         <%=link_to duck_path(duck) do %>
       <div class="card-trip border">
-        <% if @article.photo.attached? %>
+        <% if duck.photo.attached? %>
           <%= cl_image_tag duck.photo.key, class: "border" %>
         <% end %>
         <div class='card-trip-infos'>
