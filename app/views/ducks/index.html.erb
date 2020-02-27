@@ -3,7 +3,6 @@
 <div class="container">
   <div class="test remove-underline link-text-black">
     <% @ducks.each do |duck| %>
-
         <%=link_to duck_path(duck) do %>
       <div class="card-trip border">
         <% if duck.photo.attached? %>
@@ -17,7 +16,6 @@
           <p><%= duck.description %></p>
           <h6><%= duck.price %> :&euro;</h6>
         </div>
-
       </div>
       <% end %>
     <% end %>
