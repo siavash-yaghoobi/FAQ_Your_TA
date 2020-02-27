@@ -1,6 +1,15 @@
-.show-center {
+.info-title {
   img {
-    width: 15%;
+    width: 50%;
     height: auto;
   }
+}
+
+.card-booking {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
 }
