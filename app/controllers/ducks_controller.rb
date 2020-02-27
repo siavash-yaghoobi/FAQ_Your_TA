@@ -27,6 +27,12 @@ class DucksController < ApplicationController
      end
   end
 
+  def listings
+    @ducks = policy_scope(current_user.ducks)
+
+    authorize @ducks
+  end
+
   def show
     @booking = Booking.new
     authorize @duck
@@ -62,7 +68,7 @@ class DucksController < ApplicationController
   def destroy
     authorize @duck
     @duck.destroy
-    redirect_to ducks_path
+    redirect_to listings_path
   end
 
   private
