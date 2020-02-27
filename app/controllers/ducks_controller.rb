@@ -8,6 +8,16 @@ class DucksController < ApplicationController
     else
       @ducks = policy_scope(Duck.geocoded)
     end
+
+    if params[:sorted_by]
+      if params[:sorted_by] == 'price'
+        print "sorting by price"
+        @ducks = @ducks.sort_by { |duck| duck.price}
+      elsif params[:sorted_by] == 'name'
+        @ducks = @ducks.sort_by { |duck| duck.name}
+      end
+    end
+
     @markers = @ducks.map do |duck|
        {
          lat: duck.latitude,
