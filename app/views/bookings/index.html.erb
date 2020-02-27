@@ -1,2 +1,26 @@
-<p>index html erb for bookings</p>
-<p>why nested</p>
+<h1>Hi <%= current_user.email %>!</h1>
+
+<h2>My bookings</h2>
+<br>
+
+<div class="container">
+  <div class="test remove-underline link-text-black">
+    <% current_user.bookings.each do |booking| %>
+        <%=link_to booking_path(booking) do %>
+      <div class="card-trip border">
+        <% if booking.duck.photo.attached? %>
+          <%= cl_image_tag booking.duck.photo.key, class: "border" %>
+        <% end %>
+        <div class='card-trip-infos'>
+          <h2><%= booking.duck.name %></h2>
+          <h2><%= booking.duck.category %></h2>
+        </div>
+        <div class="card-trip-infos">
+          <p><%= booking.duck.description %></p>
+          <h6><%= booking.duck.price %> &euro;</h6>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
