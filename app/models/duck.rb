@@ -4,7 +4,7 @@ class Duck < ApplicationRecord
   belongs_to :user
   has_many :bookings
   pg_search_scope :search_by_name_category_description,
-    against: [ :name, :category, :description ],
+    against: [ :name, :category, :description, :address ],
     using: {
       tsearch: { prefix: true }
     }
