@@ -1,26 +1,33 @@
-<h1>Hi <%= current_user.email %>!</h1>
-
-<h2>My bookings</h2>
-<br>
 
 <div class="container">
-  <div class="test remove-underline link-text-black">
+  <h1>Hi <%= current_user.email %>!</h1>
+
+  <h2>My bookings</h2>
+  <br>
+  <div class="flexing-container">
+    <div class="duck-cards">
     <% current_user.bookings.each do |booking| %>
+      <div class="card-product border">
         <%=link_to booking_path(booking) do %>
-      <div class="card-trip border">
-        <% if booking.duck.photo.attached? %>
-          <%= cl_image_tag booking.duck.photo.key, class: "border" %>
+          <% if booking.duck.photo.attached? %>
+            <%= cl_image_tag booking.duck.photo.key, class: "border" %>
+          <% end %>
         <% end %>
-        <div class='card-trip-infos'>
-          <h2><%= booking.duck.name %></h2>
-          <h2><%= booking.duck.category %></h2>
-        </div>
-        <div class="card-trip-infos">
-          <p><%= booking.duck.description %></p>
-          <h6><%= booking.duck.price %> &euro;</h6>
-        </div>
+        <div class="spaced-between">
+          <div class="card-product-infos">
+              <h2><%= booking.duck.name %></h2>
+              <br>
+              <h5><%= booking.duck.category %></h5>
+              <br>
+              <br>
+              <p><%= booking.duck.description %></p>
+              <br>
+              <br>
+              <h6 class="item-flex-end"><%= booking.duck.price %> &euro;</h6>
+            </div>
+          </div>
       </div>
-      <% end %>
     <% end %>
   </div>
+
 </div>
