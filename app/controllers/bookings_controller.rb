@@ -6,8 +6,12 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
+    @booking = Booking.find(params[:id])
     authorize @booking
+  end
+
+  def new
+    @booking = Booking.new
   end
 
   def create
@@ -21,24 +25,24 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+  end
 
-    def edit
-      authorize @booking
-    end
+  def edit
+    authorize @booking
+  end
 
-    def update
-      authorize @booking
-      @duck = Duck.find(params[:duck_id])
-      @booking.update(booking_params)
-      redirect_to duck_path(@duck)
-    end
+  def update
+    authorize @booking
+    @duck = @booking.duck
+    @booking.update(booking_params)
+    redirect_to booking_path(@booking)
+  end
 
-    def destroy
-      authorize @booking
-      duck = @booking.duck
-      @booking.destroy
-      redirect_to duck_path(duck)
-    end
+  def destroy
+    authorize @booking
+    duck = @booking.duck
+    @booking.destroy
+    redirect_to duck_path(duck)
   end
 
   private

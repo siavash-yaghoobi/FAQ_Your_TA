@@ -1,0 +1,26 @@
+.card-white {
+  background-color: white;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  padding: 16px
+}
+
+.button-edit-del {
+  display: flex;
+  justify-content: space-between;
+}
+
+.divider {
+  width:5px;
+  height:auto;
+  display:inline-block;
+}
+
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+body {
+  background-color: white;
+}

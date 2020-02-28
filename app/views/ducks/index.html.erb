@@ -1,30 +1,31 @@
-<div class="container">
-  <%= link_to "price", ducks_path(sorted_by: 'price')%>
-  <%= link_to "name", ducks_path(sorted_by: 'name')%>
-  <div class="test remove-underline link-text-black">
+<div class="flexing-container">
+  <div class="duck-cards">
     <% @ducks.each do |duck| %>
-        <%=link_to duck_path(duck) do %>
-      <div class="card-trip border">
-        <% if duck.photo.attached? %>
-          <%= cl_image_tag duck.photo.key, class: "border" %>
+      <div class="card-product border">
+        <%= link_to duck_path(duck) do %>
+          <% if duck.photo.attached? %>
+            <%= cl_image_tag duck.photo.key%>
+          <% end %>
         <% end %>
-        <div class='card-trip-infos'>
-          <h2><%= duck.name %></h2>
-          <h2><%= duck.category %></h2>
-        </div>
-        <div class="card-trip-infos">
-          <p><%= duck.description %></p>
-          <h6><%= duck.price %> :&euro;</h6>
-        </div>
+          <div class="spaced-between">
+            <div class="card-product-infos">
+              <h2><%= duck.name %></h2>
+              <br>
+              <h5>Category: <%= duck.category %></h5>
+              <br>
+              <br>
+              <p><%= duck.description %></p>
+              <br>
+              <br>
+              <h6 class="item-flex-end"><%= duck.price %> :&euro;</h6>
+            </div>
+          </div>
       </div>
-      <% end %>
     <% end %>
   </div>
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+  <div
+    id="map"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
