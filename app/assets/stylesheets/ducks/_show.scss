@@ -2,6 +2,8 @@
   img {
     width: 50%;
     height: auto;
+    padding-top: 40px;
+    min-height: 200px;
   }
 }
 
@@ -12,4 +14,8 @@
   height: fit-content;
   display: flex;
   flex-direction: column;
+}
+
+.card-status {
+  padding-top: 40px;
 }
