@@ -24,7 +24,7 @@
             <%= simple_form_for [@duck, @booking] do |f| %>
               <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
               <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-              <%= link_to 'Submit', booking_path(@duck), class: "btn btn-primary" %>
+              <%= f.submit class: "btn btn-primary" %>
             <% end %>
           </div>
         </div>
