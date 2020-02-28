@@ -38,7 +38,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Change your booking</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -61,7 +61,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">You're about to delete your booking</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -70,10 +70,14 @@
         <p>Are you sure</p>
       </div>
       <div class="modal-footer">
-        <%= link_to "Delete", bookings_path(@booking), class: "btn btn-danger", method: :delete %>
+        <%= link_to "Delete", booking_path(@booking), class: "btn btn-danger", method: :delete %>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
+<!--
+<%= link_to "Delete", booking_path(@booking), class: "btn btn-danger", method: :delete %>
+
+<%= link_to "Delete NEW", booking_path(@booking), method: :delete %> -->
 
