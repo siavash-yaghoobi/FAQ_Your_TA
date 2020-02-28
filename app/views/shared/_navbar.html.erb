@@ -19,7 +19,11 @@
           <%= link_to('Create a Duck', new_duck_path, class: "nav-link") %>
         </li>
         <li class="nav-item dropdown">
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="http://pngimg.com/uploads/duck/duck_PNG5022.png" />
+          <% if current_user.photo.key == nil %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="http://pngimg.com/uploads/duck/duck_PNG5022.png" />
+          <% else %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%= cl_image_path current_user.photo.key %> />
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <div class="username-pg">
               <% if current_user.username.present? %>
