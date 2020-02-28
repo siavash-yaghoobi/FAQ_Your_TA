@@ -1,4 +1,6 @@
 <div class="container">
+  <%= link_to "price", ducks_path(sorted_by: 'price')%>
+  <%= link_to "name", ducks_path(sorted_by: 'name')%>
   <div class="test remove-underline link-text-black">
     <% @ducks.each do |duck| %>
         <%=link_to duck_path(duck) do %>

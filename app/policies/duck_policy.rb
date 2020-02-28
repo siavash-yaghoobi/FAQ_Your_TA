@@ -19,4 +19,16 @@ class DuckPolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  def listings?
+    return true
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
 end

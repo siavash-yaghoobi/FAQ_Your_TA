@@ -20,5 +20,9 @@ function calculatePrice() {
     document.getElementById("price").innerText = `The price is ${price} Dollar`;
 }
 
+if (startDateInput) {
 startDateInput.addEventListener('change', calculatePrice);
+};
+if (endDateInput) {
 endDateInput.addEventListener('change', calculatePrice);
+};
