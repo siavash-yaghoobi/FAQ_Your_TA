@@ -1,5 +1,6 @@
-const startDateInput = document.getElementById("booking_starts_at");
-const endDateInput = document.getElementById("booking_ends_at");
+const startDateInput = document.getElementById("range_start");
+const endDateInput = document.getElementById("range_end");
+const duckPrice = '<%= @duck.price %>'
 
 // console.log(startDateInput)
 
@@ -13,7 +14,7 @@ function calculatePrice() {
     const endDate = new Date(endDateInput.value);
     const diffTime = endDate - startDate;
     const diffDay = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
-    const price = diffDay * 50;
+    const price = diffDay * duckPrice;
 
     console.log('im here')
     console.log(price)
