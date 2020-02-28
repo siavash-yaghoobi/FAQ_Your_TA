@@ -1,0 +1,63 @@
+.card-product {
+  overflow: hidden;
+  height: 250px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.card-product img {
+  height: 100%;
+  width: 300px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.spaced-between {
+  justify-content: spaced-between;
+
+}
+.flexing-container {
+  display: flex;
+  margin-left: 5%;
+  margin-right: 10px;
+}
+
+#map {
+  width: 30%;
+  height: 90vh;
+  position: sticky;
+  top: 0;
+  margin: 15px 0;
+  border-radius: 20px;
+}
+
+.column-direction {
+  flex-direction: column;
+}
+
+.duck-cards {
+  flex-grow: 1;
+  margin-top: 4px;
+  margin-right: 20px;
+}
+
