@@ -18,6 +18,10 @@
           <p><%= @booking.ends_at %></p>
         </div>
         <div class="d-flex justify-content-between mt-3">
+          <p><strong>Pick-up point:</strong></p>
+          <p><%= @booking.duck.address %></p>
+        </div>
+        <div class="d-flex justify-content-between mt-3">
           <p><strong>Topic/Category:</strong></p>
           <p><%= @booking.duck.category %></p>
         </div>
@@ -68,10 +72,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure</p>
+        <p>Are you sure?</p>
       </div>
       <div class="modal-footer">
-        <%= link_to "Delete", booking_path(@booking), class: "btn btn-danger", method: :delete %>
+        <%= link_to "Confirm cancellation", booking_path(@booking), class: "btn btn-danger", method: :delete %>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
