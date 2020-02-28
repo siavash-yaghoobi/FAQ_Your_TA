@@ -4,15 +4,15 @@
   <div class="test remove-underline link-text-black">
     <% @ducks.each do |duck| %>
         <%=link_to duck_path(duck) do %>
-      <div class="card-trip border">
+      <div class="card-listing border">
         <% if duck.photo.attached? %>
           <%= cl_image_tag duck.photo.key, class: "border" %>
         <% end %>
-        <div class='card-trip-infos'>
+        <div class='card-listing-infos'>
           <h2><%= duck.name %></h2>
           <h2><%= duck.category %></h2>
         </div>
-        <div class="card-trip-infos">
+        <div class="card-listing-infos">
           <p><%= duck.description %></p>
           <h6><%= duck.price %> :&euro;</h6>
         </div>
