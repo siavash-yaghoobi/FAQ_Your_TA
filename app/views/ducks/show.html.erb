@@ -7,17 +7,25 @@
             <%= cl_image_tag @duck.photo.key %>
           <% end %>
           <div class="info-details">
-            <h2> <%= @duck.name %></h2>
-            <p> Category:<%= @duck.category %></p>
-            <p> Description:<%= @duck.description %></p>
+            <h3> <%= @duck.name %></h2>
+            <p> Category </p>
+            <p><%= @duck.category %></p>
+            <p> Description:</p>
+            <p><%= @duck.description %></p>
           </div>
         </div>
       </div>
       <div class="card-status col-md-4">
+        <p>Manage your duck:</p>
         <div class="card-booking">
           <% if policy(@duck).update? %>
-            <%= link_to "edit", edit_duck_path(@duck) %>
-            <%= button_to "delete", duck_path(@duck), method: :delete  %>
+            <div class="card-policy">
+              <%= link_to "edit", edit_duck_path(@duck), class: "btn btn-primary w-50" %>
+              <div class="divider"></div>
+              <% if @duck.bookings.nil? %>
+                <%= link_to "delete", duck_path(@duck), method: :delete, class: "btn btn-danger w-50" %>
+              <% end %>
+            </div>
           <% else %>
             <p id="price">Start from $50 per day</p>
             <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
