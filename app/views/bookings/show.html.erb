@@ -1,7 +1,7 @@
 
 <div class="container">
   <h2>Booking Confirmation</h2>
-  <p>Thanks <%= current_user.username %>!</p>
+  <p>Thank you for your booking, <%= current_user.username %>!</p>
   <div class="row">
     <div class="col-md-8">
       <div class="card-white">
@@ -23,7 +23,8 @@
         </div>
         <div class="button-edit-del">
           <a href="#" class="btn btn-primary w-50" data-toggle="modal" data-target="#exampleModalCenter">Edit</a>
-          <a href="#" class="btn btn-danger w-50" data-toggle="modal" data-target="#delModalCenter">Delete</a>
+          <div class="divider"></div>
+          <a href="#" class="btn btn-danger w-50" data-toggle="modal" data-target="#delModalCenter">Cancel Booking</a>
         </div>
       </div>
     </div>
@@ -76,8 +77,4 @@
     </div>
   </div>
 </div>
-<!--
-<%= link_to "Delete", booking_path(@booking), class: "btn btn-danger", method: :delete %>
-
-<%= link_to "Delete NEW", booking_path(@booking), method: :delete %> -->
 
